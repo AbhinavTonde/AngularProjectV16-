@@ -1,0 +1,24 @@
+<form (ngSubmit)="handleSubmit()" [formGroup]="myForm">
+    <label for="">Enter User Name</label>
+    <input type="text" formControlName="uName" id="">
+    <span *ngIf="getterForUserName.errors?.required">User Name is mandatory field.</span>
+    <br><br>
+
+    <label for="">Enter User Age</label>
+    <input type="number" formControlName="uAge" id="">
+    <span *ngIf="getUserAge.errors?.required">User Age is mandatory field</span>
+    <span *ngIf="getUserAge.errors?.min">User Age should not be less than 0.</span>
+    <span *ngIf="getUserAge.errors?.max">User Age should not be greater than 100.</span>
+    <br><br>
+
+    <label for="">Enter Phone Number</label>
+    <input type="text" formControlName="uContNo" id="">
+    <span *ngIf="getUserContact.errors?.required">Users Contact Number is essential</span>
+    <span *ngIf="getUserContact.errors?.maxlength">Users Contact Number should not exceed the length more than 10.</span>
+    <span *ngIf="getUserContact.errors?.pattern">Users Contact Number will not have any characters.</span>
+    <br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<h1> {{myForm.value|json}} </h1>

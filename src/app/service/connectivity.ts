@@ -1,0 +1,1 @@
+export const connectionUrl:string = "http://localhost:1234/"

@@ -1,0 +1,57 @@
+<form class="formContainer" (ngSubmit)="handleSubmit()" [formGroup]="bookAdd">
+    <div class="formControl">
+        <label for="bookName">Enter Book Name</label>
+        <input type="text" formControlName="bookName" id="bookName">
+        <mark *ngIf="getBookName.errors?.required">Book Name is must.</mark>
+        <mark *ngIf="getBookName.errors?.maxlength">Book Name should not exceed 35 characters.</mark>
+    </div>
+    <div class="formControl">
+        <label for="bookPrice">Enter Book Price</label>
+        <input type="text" formControlName="bookPrice" id="bookPrice">
+        <mark *ngIf="getBookPrice.errors?.required">Book price is must.</mark>
+    </div>
+    <div class="formControl">
+        <label for="authorName">Enter Author Name</label>
+        <input type="text" formControlName="authorName" id="authorName">
+        <mark *ngIf="getAuthorName.errors?.required">Enter Author Name.</mark>
+        <mark *ngIf="getAuthorName.errors?.maxlength">Author Name should not exceed 35 characters.</mark>
+    </div>
+    <div class="formCotrol">
+        <input type="file" name="" id="">
+    </div>
+
+    <div class="formControl">
+        <label for="publishedDate">Enter Published Date of Book</label>
+        <input type="date" formControlName="publishedDate" id="publishedDate">
+        <mark *ngIf="getPublishedDate.errors?.required">Enter Published Date.</mark>
+    </div>
+    <input type="submit" value="Add Book">
+</form>
+
+<!-- <h2>{{bookAdd.value|json}}</h2> -->
+
+<br><br>
+
+<input type="date" name="inputDate" id="inputDate" [(ngModel)]="data">
+<button (click)="showRecord()">Show Record</button>
+
+
+<h1 *ngIf="bookArr.length==0">No book is currently available</h1>
+
+<table *ngIf="bookArr.length>0">
+    <tr>
+        <th>Book Id</th>
+        <th>Book Name</th>
+        <th>Book Price</th>
+        <th>Author Name</th>
+        <th>Published Date</th>
+    </tr>
+    <tr *ngFor="let book of bookArr">
+        <td> {{book.bookId|number:'2.0'}} </td>
+        <td> {{book.bookName}} </td>
+        <td> {{book.bookPrice|currency:'INR'}} </td>
+        <td> {{book.authorName|titlecase}} </td>
+        <td> {{book.publishedDate|date:'dd-MM-yyyy'}} </td>
+    </tr>
+</table>
+

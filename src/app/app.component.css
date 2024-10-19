@@ -1,0 +1,21 @@
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: gray;
+    height: 10vh;
+    width: 100%;
+    padding-top: 2vh;
+    font-size: 4vh;
+
+    a {
+        color: black;
+        font-family: Comic Sans MS;
+        font-weight: bold;
+        text-decoration: none;
+
+        &:hover{
+            color: blue;
+            text-decoration: underline;
+        }
+    }
+}
